@@ -190,7 +190,7 @@ class Origami_generator extends CI_Controller {
             $this->_append("defined('BASEPATH') OR exit('No direct script access allowed');\r\n");
             $this->_append("\r\n");
             
-            $class_name = $table['Name'];
+            $class_name = ucfirst($table['Name']);
             
             $this->_append("class $class_name extends \Origami\Entity\r\n");
             $this->_append("{\r\n");
@@ -412,7 +412,7 @@ class Origami_generator extends CI_Controller {
                 $this->_append($relations_buffer);
             }
                         
-            $file_name = $table['Name'].'.php';
+            $file_name = ucfirst($table['Name']).'.php';
 
             // Si il exite un override
             if (!empty($this->override[$file_name])) {
